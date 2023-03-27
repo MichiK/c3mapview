@@ -39,5 +39,5 @@ image:
     docker rm $CONTAINER
     docker rmi tmp
 
-The build script will pick it an existing `tiles` directory and skip the build
+The build script will pick up an existing `tiles` directory and skip the build
 process.
