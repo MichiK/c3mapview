@@ -3,10 +3,10 @@
 // 0 is usually fine
 const minZoom = 0;
 
-// 6 works well for an image of 16384x1683 pixel
+// 6 works well for an image of 16384x16384 pixel
 const maxZoom = 6;
 
-// initial coordinates and zoom level if noting is given via the URL
+// initial coordinates and zoom level if nothing is given via the URL
 // the center is at [0, 0]
 const defaultCenter = [0, 0];
 const defaultZoom = 3;
