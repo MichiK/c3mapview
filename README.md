@@ -19,3 +19,25 @@ size and the background color.
 Please note that the Inkscape installation used inside the container does not
 know any fonts, so either convert all text to paths or install the needed fonts
 via apk in the `Dockerfile`.
+
+## Build tricks
+
+If the original image is really big and the server you are deploying to does not
+have a lot of resources, building in place might be a bad idea. You can build
+locally like this:
+
+    docker build --target builder --tag tmp .
+
+Then, create a container and extract the tiles:
+
+    export CONTAINER=$(docker create tmp)
+    docker cp $CONTAINER:/build/tiles/ .
+
+After you have extracted the tiles, you can delete the temporary container and
+image:
+
+    docker rm $CONTAINER
+    docker rmi tmp
+
+The build script will pick it an existing `tiles` directory and skip the build
+process.

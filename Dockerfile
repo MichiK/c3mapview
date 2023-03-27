@@ -9,15 +9,16 @@ RUN apk update && apk add \
 
 WORKDIR /build
 
-COPY build-tiles.sh map* /build/
-
 RUN npm install leaflet
+
+COPY . /build/
+
 RUN ./build-tiles.sh
 
 FROM nginx:alpine
 
 COPY --from=builder \
-  /build/tiles \
+  /build/tiles/ \
   /usr/share/nginx/html/tiles/
 
 COPY --from=builder \
