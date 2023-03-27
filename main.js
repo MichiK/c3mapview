@@ -14,9 +14,9 @@ const defaultZoom = 3;
 // maximum bounds of the map
 // use this to restrict the user to a certain area of the map
 // the format is [[min_x, min_y], [max_x, max_y]]
-// [-100, -100] and [100, 100] is the full image
+// [-128, -128] and [128, 128] is the full image
 // the center is at [0, 0]
-const maxBounds = [[-100, -100], [100, 100]];
+const maxBounds = [[-128, -128], [128, 128]];
 
 const mapOptions = {
   attributionControl: true,
